@@ -75,7 +75,7 @@ export default function ChatInterface() {
               <Bot />
             </AvatarFallback>
           </Avatar>
-        <h1 className="text-xl font-bold font-headline">G-Bot</h1>
+        <h1 className="text-xl font-bold font-headline">botuu</h1>
       </header>
 
       <ScrollArea className="flex-1" viewportRef={scrollAreaViewportRef}>
