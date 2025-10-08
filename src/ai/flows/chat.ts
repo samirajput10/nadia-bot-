@@ -31,7 +31,7 @@ export const chatFlow = ai.defineFlow(
       model: 'googleai/gemini-2.5-flash',
     });
 
-    const responseText = llmResponse.text().trim();
+    const responseText = (llmResponse.text || '').trim();
     
     // Ensure the response is exactly "G", even if the LLM hallucinates.
     if (responseText.toUpperCase() === 'G') {
