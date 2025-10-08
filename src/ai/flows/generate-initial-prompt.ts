@@ -35,7 +35,6 @@ const generateInitialPromptFlow = ai.defineFlow(
     outputSchema: GenerateInitialPromptOutputSchema,
   },
   async () => {
-    const {text} = await initialPrompt({});
-    return text!;
+    return "Hello! Try asking me anything, and I will respond with 'G'.";
   }
 );
