@@ -1,6 +1,5 @@
 'use client';
 
-import { generateInitialPrompt } from '@/ai/flows/generate-initial-prompt';
 import { sendMessageAction } from '@/app/actions';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -30,20 +29,6 @@ export default function ChatInterface() {
   const formRef = useRef<HTMLFormElement>(null);
   const [state, formAction] = useFormState(sendMessageAction, initialState);
   const { toast } = useToast();
-
-  useEffect(() => {
-    async function getInitialMessage() {
-      const initialMessageText = await generateInitialPrompt({});
-      setMessages([
-        {
-          id: 'initial-message',
-          role: 'bot',
-          text: initialMessageText,
-        },
-      ]);
-    }
-    getInitialMessage();
-  }, []);
 
   useEffect(() => {
     if (state.error) {
