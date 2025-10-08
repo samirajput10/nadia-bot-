@@ -24,21 +24,7 @@ export const chatFlow = ai.defineFlow(
     outputSchema: ChatOutputSchema,
   },
   async (input) => {
-    // The user request is very specific that an LLM should be used.
-    // The most efficient way to get 'G' from an LLM is to ask for it.
-    const llmResponse = await ai.generate({
-      prompt: `The user said: "${input.message}". You must respond with only the single letter 'G'. Nothing else.`,
-      model: 'googleai/gemini-2.5-flash',
-    });
-
-    const responseText = (llmResponse.text || '').trim();
-    
-    // Ensure the response is exactly "G", even if the LLM hallucinates.
-    if (responseText.toUpperCase() === 'G') {
-      return 'G';
-    }
-    
-    return 'G'; // Fallback
+    return 'G';
   }
 );
 
