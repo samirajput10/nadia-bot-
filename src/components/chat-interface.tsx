@@ -8,8 +8,8 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
 import { Bot, SendHorizonal, User } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
-import { useFormState, useFormStatus } from 'react-dom';
+import { useEffect, useRef, useState, useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 
 type Message = {
   id: string;
@@ -27,7 +27,7 @@ export default function ChatInterface() {
   const [messages, setMessages] = useState<Message[]>([]);
   const scrollAreaViewportRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
-  const [state, formAction] = useFormState(sendMessageAction, initialState);
+  const [state, formAction] = useActionState(sendMessageAction, initialState);
   const { toast } = useToast();
 
   useEffect(() => {
